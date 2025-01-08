@@ -1,4 +1,4 @@
-import userRoutes from '../modules/user.route'
+import userRoutes from '../modules/user/user.route'
 import express from 'express'
 
 const router = express.Router()
