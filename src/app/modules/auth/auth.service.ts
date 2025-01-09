@@ -3,7 +3,7 @@ import UserModel from '../user/user.model'
 
 import { TLoginUser } from './auth.interface'
 
-export const loginUser = async (payload: TLoginUser) => {
+const loginUser = async (payload: TLoginUser) => {
   const user = await UserModel.isUserExists(payload.email)
   if (!user) {
     throw new Error('User not found')
@@ -11,7 +11,6 @@ export const loginUser = async (payload: TLoginUser) => {
   if (user.isDeleted) {
     throw new Error('This user is deleted')
   }
-
   if (!(await UserModel.isPasswordMatched(payload.password, user?.password))) {
     throw new Error('Authentication failed')
   }
@@ -22,5 +21,10 @@ export const loginUser = async (payload: TLoginUser) => {
   }
 
   const accessToken = generateAccessToken(jwtPayload)
+
   return { accessToken }
+}
+
+export default {
+  loginUser,
 }

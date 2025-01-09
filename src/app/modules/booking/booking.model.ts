@@ -1,4 +1,4 @@
-import mongoose, { Schema, Model, model } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { TBooking } from './booking.interface'
 
 // Define the interface for the Booking document
@@ -12,12 +12,12 @@ const BookingSchema = new Schema<TBooking>(
     },
     traineeId: {
       type: String,
-      ref: 'Trainee', 
+      ref: 'Trainee',
       required: true,
     },
     scheduleId: {
       type: String,
-      ref: 'ClassSchedule', 
+      ref: 'ClassSchedule',
       required: true,
     },
   },
