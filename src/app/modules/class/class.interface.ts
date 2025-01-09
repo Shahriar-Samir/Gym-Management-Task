@@ -1,9 +1,10 @@
-export type TUser = {
+export type TClassSchedule = {
   id: string
-  name: string
-  email: string
-  password: string
-  role: 'admin' | 'trainer' | 'trainee'
+  date: string
+  startTime: string
+  endTime: string
+  trainerId: string
+  trainees: string[]
   createdAt: string
   updatedAt: string
 }
