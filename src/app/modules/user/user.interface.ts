@@ -1,9 +1,16 @@
-export type TUser = {
-  id: string
+/* eslint-disable no-unused-vars */
+import { Model } from 'mongoose'
+
+export interface TUser {
+  uid: string
   name: string
   email: string
   password: string
-  role: 'admin' | 'trainer' | 'trainee'
+  isDeleted: boolean
   createdAt: string
   updatedAt: string
+}
+
+export interface UserModel extends Model<TUser> {
+  isUserExists(email: string): Promise<TUser>
 }
