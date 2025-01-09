@@ -2,6 +2,6 @@ import express from 'express'
 
 const router = express.Router()
 
-const userRoutes = router
+const classScheduleRoutes = router
 
-export default userRoutes
+export default classScheduleRoutes

@@ -33,7 +33,7 @@ const ClassScheduleSchema = new Schema<TClassSchedule>(
 )
 
 // Create and export the model
-export const ClassSchedule = model<TClassSchedule>(
+export const ClassScheduleModel = model<TClassSchedule>(
   'ClassSchedule',
   ClassScheduleSchema
 )

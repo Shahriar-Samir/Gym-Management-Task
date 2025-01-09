@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
-import { createUserIntoDB } from './class.service'
+import { createClassScheduleIntoDB } from './class.service'
 
-export const createUser = async (
+export const createClassSchema = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const result = await createUserIntoDB(req.body)
+    const result = await createClassScheduleIntoDB(req.body)
     return res.json({
       success: true,
       statusCode: 201,

@@ -1,7 +1,7 @@
-import { TUser } from './class.interface'
-import UserModel from './class.model'
+import { TClassSchedule } from './class.interface'
+import { ClassScheduleModel } from './class.model'
 
-export const createUserIntoDB = async (userData: TUser) => {
-  const result = await UserModel.create(userData)
+export const createClassScheduleIntoDB = async (userData: TClassSchedule) => {
+  const result = await ClassScheduleModel.create(userData)
   return result
 }
