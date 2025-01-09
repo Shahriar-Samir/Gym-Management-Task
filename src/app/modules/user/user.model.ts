@@ -35,6 +35,13 @@ userSchema.statics.isUserExists = async function (email) {
   return await UserModel.findOne({ email })
 }
 
+userSchema.statics.isPasswordMatched = async function (
+  plainTextPassword,
+  hashedPassword
+) {
+  return plainTextPassword === hashedPassword
+}
+
 const UserModel = model<TUser, UserModel>('User', userSchema)
 
 export default UserModel

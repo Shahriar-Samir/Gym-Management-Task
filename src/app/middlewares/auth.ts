@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken'
 import config from '../config'
+import { TJWTPayload } from '../modules/auth/auth.interface'
 
-type TRouteType = 'messages' | 'conversations' | 'settings'
-
-export const generateAccessToken = (payload: TRouteType) => {
+export const generateAccessToken = (payload: TJWTPayload) => {
   return jwt.sign(payload, config.tokenSecret as string, { expiresIn: '10d' })
 }
