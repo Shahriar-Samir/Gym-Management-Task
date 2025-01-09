@@ -1,13 +1,39 @@
-import { model, Schema } from 'mongoose'
-import { TUser } from './class.interface'
+import mongoose, { model, Schema } from 'mongoose'
+import { TClassSchedule } from './class.interface'
 
-const userSchema = new Schema<TUser>({
-  name: {
-    type: String,
-    required: true,
+const ClassScheduleSchema = new Schema<TClassSchedule>(
+  {
+    date: {
+      type: String,
+      required: true,
+    },
+    startTime: {
+      type: String,
+      required: true,
+    },
+    endTime: {
+      type: String,
+      required: true,
+    },
+    trainerId: {
+      type: String,
+      ref: 'Trainer',
+      required: true,
+    },
+    trainees: [
+      {
+        type: Array,
+        ref: 'Trainee',
+      },
+    ],
   },
-})
+  {
+    timestamps: true,
+  }
+)
 
-const UserModel = model('User', userSchema)
-
-export default UserModel
+// Create and export the model
+export const ClassSchedule = model<TClassSchedule>(
+  'ClassSchedule',
+  ClassScheduleSchema
+)
